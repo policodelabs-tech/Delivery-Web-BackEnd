@@ -25,9 +25,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable()) // El escudo que causaba el 403 en peticiones POST
+            .csrf(csrf -> csrf.disable()) 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll() // Permiso de acceso libre
+                // ¡AQUÍ ESTÁ EL CAMBIO! Agregamos "/error"
+                .requestMatchers("/api/auth/**", "/error").permitAll() 
                 .anyRequest().authenticated()
             );
         return http.build();
