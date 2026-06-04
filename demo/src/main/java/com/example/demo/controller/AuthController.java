@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*") // Permite peticiones desde tu HTML
+@CrossOrigin(origins = "*") // 2. ESTA ES LA LLAVE MAESTRA
 public class AuthController {
 
     @Autowired
