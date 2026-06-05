@@ -21,6 +21,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -28,7 +30,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) 
             .authorizeHttpRequests(auth -> auth
                 // ¡AQUÍ ESTÁ EL CAMBIO! Agregamos "/error"
-                .requestMatchers("/api/auth/**", "/error").permitAll() 
+                .requestMatchers("/api/auth/**", "/api/pagos/**", "/api/messages", "/error").permitAll()
                 .anyRequest().authenticated()
             );
         return http.build();

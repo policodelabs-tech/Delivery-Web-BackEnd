@@ -81,4 +81,10 @@
 		</plugins>
 	</build>
 
+<dependency>
+    <groupId>com.microsoft.bot</groupId>
+    <artifactId>bot-integration-spring</artifactId>
+    <version>4.14.3</version>
+</dependency>
+
 </project>
